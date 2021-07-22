@@ -6,7 +6,7 @@ import Videos from "./dbModel.js";
 
 // App config
 const app = express();
-const port = 9000;
+const port = process.env.PORT || 9000;
 
 // Middlewares
 // It will pass the response as a json object
