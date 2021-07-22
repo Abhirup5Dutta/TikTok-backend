@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import Cors from "cors";
 
 import Data from "./data.js";
 import Videos from "./dbModel.js";
@@ -11,12 +12,7 @@ const port = process.env.PORT || 9000;
 // Middlewares
 // It will pass the response as a json object
 app.use(express.json());
-app.use((req, res, next) => {
-  // Whenever we get any requests, we will be setting the header to the '*' that means we accept all the requests and then we pass to these below functions which are in here.
-  res.setHeaders("Access-Control-Allow-Origin", "*"),
-    res.setHeaders("Access-Control-Allow-Headers", "*"),
-    next();
-});
+app.use(Cors());
 
 // DB config
 const connection_url =
